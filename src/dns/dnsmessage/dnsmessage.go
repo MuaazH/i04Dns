@@ -1882,8 +1882,12 @@ type Name struct {
 
 // NewName creates a new Name from a string.
 func NewName(name string) (Name, error) {
-	if len([]byte(name)) > nameLen {
+	L := len([]byte(name))
+	if L > nameLen {
 		return Name{}, errCalcLen
+	}
+	if L == 0 || name[L - 1] != '.' {
+		return Name{}, errNonCanonicalName
 	}
 	n := Name{Length: uint8(len(name))}
 	copy(n.Data[:], []byte(name))
@@ -1901,7 +1905,7 @@ func MustNewName(name string) Name {
 
 // String implements fmt.Stringer.String.
 func (n Name) String() string {
-	return string(n.Data[:n.Length])
+	return string(n.Data[:n.Length - 1])
 }
 
 // GoString implements fmt.GoStringer.GoString.
