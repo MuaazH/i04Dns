@@ -1,0 +1,43 @@
+package txt
+
+const (
+	AppName = "APP_NAME"
+	Version = "VERSION"
+
+	Port         = "PORT"
+	OpenPort     = "OPEN_PORT"
+	OpenPortOk   = "OPEN_PORT_OK"
+	OpenPortFail = "OPEN_PORT_FAIL"
+	Error        = "ERROR"
+
+	ConfLoad              = "LOAD_CONF"
+	ConfLoadOk            = "LOAD_CONF_OK"
+	ConfLoadFail          = "LOAD_CONF_FAIL"
+	ConfMissingHttp       = "CONF_MISSING_HTTP"
+	ConfMissingDns        = "CONF_MISSING_DNS"
+	ConfMissingDnsServers = "CONF_MISSING_DNS_SERVERS"
+	ConfMissingLocalDB    = "CONF_MISSING_LOCAL_DB"
+	ConfMissingWhitelist  = "CONF_MISSING_DNS_WHITELIST"
+	ConfMissingBlacklist  = "CONF_MISSING_DNS_BLACKLIST"
+	ConfBadHttpIp         = "CONF_BAD_HTTP_IP"
+	ConfBadHttpPort       = "CONF_BAD_HTTP_PORT"
+	ConfBadHttpNetwork    = "CONF_BAD_HTTP_NETWORK"
+	ConfBadDnsIp          = "CONF_BAD_DNS_IP"
+	ConfBadDnsNetwork     = "CONF_BAD_DNS_NETWORK"
+	ConfBadWhitelist      = "CONF_BAD_WHITELIST"
+	ConfBadBlacklist      = "CONF_BAD_BLACKLIST"
+	ConfBadDnsServers     = "CONF_BAD_DNS_SERVERS"
+	ConfBadLocalDB        = "CONF_BAD_DNS_DB"
+
+	DnsSrvConfInvalid   = "INVALID_CONF"
+	DnsSrvClearingCache = "CLEARING_CACHE"
+	DnsSrvEmptyRequest  = "EMPTY_QUESTION"
+	DnsSrvId            = "ID"
+	DnsSrvQuestion      = "QUESTION_RECEIVED"
+	DnsSrvClient        = "CLIENT"
+	DnsSrvClass         = "CLASS"
+	DnsSrvType          = "TYPE"
+	DnsSrvName          = "NAME"
+	DnsSrvRecordExpired = "RECORD_EXPIRED"
+	DnsSrvAnswerFromDB   = "ANSWER_FROM_DB"
+)
