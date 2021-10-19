@@ -39,8 +39,9 @@ type DnsRecord struct {
 }
 
 type NameFilter struct {
-	Filter *string
-	Name   *string
+	Filter  *string
+	Name     *string
+	Disabled bool
 }
 
 type ConfigurationFile struct {
@@ -81,6 +82,9 @@ func toFilterList(array *[]NameFilter, errorMsg string) (*util.FilterList, error
 	list := util.NewFilterList(size)
 	for i := 0; i < size; i++ {
 		nf := (*array)[i]
+		if nf.Disabled {
+			continue
+		}
 		if nf.Filter == nil || len(*nf.Filter) == 0 {
 			return nil, errors.New(errorMsg)
 		}

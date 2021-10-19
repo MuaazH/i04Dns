@@ -205,16 +205,16 @@
             "Name": "Google Shit"
         },
         {
-            "filter": "prod-tp.sumo.moz.works",
-            "disable": true
+            "Filter": "prod-tp.sumo.moz.works",
+            "Disabled": true
         },
         {
-            "filter": "support.mozilla.org",
-            "disable": true
+            "Filter": "support.mozilla.org",
+            "Disable": true
         },
         {
-            "filter": "*addons*mozilla*",
-            "disable": true
+            "Filter": "*addons*mozilla*",
+            "Disable": true
         },
         {
             "Filter": "addons-cdn-geo.prod.mozaws.net"
@@ -1170,14 +1170,14 @@
             "Filter": "*symcd.com"
         },
         {
-            "filter": "*.mojang.com",
+            "Filter": "*.mojang.com",
             "Name": "minecraft",
-            "disable": true
+            "Disable": true
         },
         {
-            "filter": "*.minecraft.com",
+            "Filter": "*.minecraft.com",
             "Name": "minecraft",
-            "disable": true
+            "Disable": true
         },
         {
             "Filter": "*internetdownloadmanager*"
