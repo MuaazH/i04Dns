@@ -18,7 +18,6 @@ const defaultPort = 53
 var defaultPortStr = "53"
 
 type ServerContext struct {
-	DB     *config.Database
 	Cache  *cache.Cache
 	socket *net.UDPConn
 }
@@ -91,12 +90,15 @@ func processRequest(ctx *ServerContext, msg *dnsmessage.Message, sender *net.UDP
 	}
 	query := msg.Questions[0] // all other queries are ignored
 	util.LogInfo(util.DnsModule, txt.DnsSrvQuestion, []string{txt.DnsSrvId, txt.DnsSrvClient, txt.DnsSrvClass, txt.DnsSrvType, txt.DnsSrvName}, []string{strconv.Itoa(int(msg.Header.ID)), sender.String(), query.Class.String(), query.Type.String(), query.Name.String()})
-	answer, additional := ctx.DB.LookupAnswer(&query)
-	if answer != nil {
-		// todo: log what the answer was in detail
-		util.LogInfo(util.DnsModule, txt.DnsSrvAnswerFromDB, []string{txt.DnsSrvId, txt.DnsSrvClient}, []string{strconv.Itoa(int(msg.Header.ID)), sender.String()})
-		sendResponse(ctx, newResponseHeader(msg.Header.ID, true, dnsmessage.RCodeSuccess), &query, answer, additional, sender)
-		return
+	db := config.GetDB()
+	if db != nil {
+		answer, additional := db.LookupAnswer(&query)
+		if answer != nil {
+			// todo: log what the answer was in detail
+			util.LogInfo(util.DnsModule, txt.DnsSrvAnswerFromDB, []string{txt.DnsSrvId, txt.DnsSrvClient}, []string{strconv.Itoa(int(msg.Header.ID)), sender.String()})
+			sendResponse(ctx, newResponseHeader(msg.Header.ID, true, dnsmessage.RCodeSuccess), &query, answer, additional, sender)
+			return
+		}
 	}
 	// todo: check if the host is whitelisted
 	// todo: filter name
@@ -106,16 +108,13 @@ func processRequest(ctx *ServerContext, msg *dnsmessage.Message, sender *net.UDP
 
 func Run() {
 	context := ServerContext{
-		DB:    config.DnsDatabase,
 		Cache: cache.NewCache(),
+		socket: nil,
 	}
-	if context.DB == nil {
-		context.DB = config.NewDatabase()
-	}
-
 	util.LogInfo(util.DnsModule, txt.OpenPort, []string{txt.Port}, []string{defaultPortStr})
-	host := config.DnsConfig.Host
-	network := config.DnsConfig.Network
+	dnsConf := config.GetDnsConf()
+	host := dnsConf.Host
+	network := dnsConf.Network
 	for {
 		if host == nil || network == nil {
 			util.LogInfo(util.DnsModule, txt.DnsSrvConfInvalid, []string{}, []string{})

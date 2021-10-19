@@ -7,6 +7,7 @@ import (
 	"i04Dns/util"
 	"io/ioutil"
 	"os"
+	"sync"
 )
 
 type HttpServerConfig struct {
@@ -95,19 +96,36 @@ func toFilterList(array *[]NameFilter, errorMsg string) (*util.FilterList, error
 }
 
 var (
-	HttpConfig   *HttpServerConfig
-	DnsConfig    *DnsServerConfig
-	DnsDatabase  *Database
-	DnsServers   *[]DnsServer
-	DnsBlacklist *util.FilterList
-	DnsWhitelist *util.FilterList
+	httpConfig   *HttpServerConfig
+	dnsConfig    *DnsServerConfig
+	dnsDatabase  *Database
+	dnsServers   *[]DnsServer
+	dnsBlacklist *util.FilterList
+	dnsWhitelist *util.FilterList
 )
 
 // ####################
 // # config functions #
 // ####################
 
+var mutex sync.Mutex
+
+func GetDB() *Database {
+	mutex.Lock()
+	defer mutex.Unlock()
+	return dnsDatabase
+}
+
+func GetDnsConf() *DnsServerConfig {
+	mutex.Lock()
+	defer mutex.Unlock()
+	return dnsConfig
+}
+
 func SetConfig(config *ConfigurationFile) error {
+	mutex.Lock()
+	defer mutex.Unlock()
+
 	if config.Http == nil {
 		return errors.New(txt.ConfMissingHttp)
 	}
@@ -168,12 +186,12 @@ func SetConfig(config *ConfigurationFile) error {
 		return err
 	}
 	// set some shit
-	DnsConfig = config.Dns
-	HttpConfig = config.Http
-	DnsServers = config.DnsServers
-	DnsDatabase = db
-	DnsWhitelist = wl
-	DnsBlacklist = bl
+	dnsConfig = config.Dns
+	httpConfig = config.Http
+	dnsServers = config.DnsServers
+	dnsDatabase = db
+	dnsWhitelist = wl
+	dnsBlacklist = bl
 	return nil
 }
 
