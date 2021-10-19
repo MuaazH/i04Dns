@@ -122,6 +122,12 @@ func GetDnsConf() *DnsServerConfig {
 	return dnsConfig
 }
 
+func GetNameFilters() (*util.FilterList, *util.FilterList) {
+	mutex.Lock()
+	defer mutex.Unlock()
+	return dnsWhitelist, dnsBlacklist
+}
+
 func SetConfig(config *ConfigurationFile) error {
 	mutex.Lock()
 	defer mutex.Unlock()
@@ -177,11 +183,11 @@ func SetConfig(config *ConfigurationFile) error {
 	if err != nil {
 		return err
 	}
-	bl, err = config.getWhitelist()
+	wl, err = config.getWhitelist()
 	if err != nil {
 		return err
 	}
-	wl, err = config.getBlacklist()
+	bl, err = config.getBlacklist()
 	if err != nil {
 		return err
 	}

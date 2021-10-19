@@ -161,7 +161,7 @@ func (list *FilterList) Compile() *FilterList {
 	return list
 }
 
-func (list *FilterList) FindRule(txt string) *string {
+func (list *FilterList) FindFilter(txt string) *string {
 	if !list.isCompiled {
 		return nil
 	}

@@ -57,10 +57,12 @@ func sendResponse(ctx *ServerContext, head *dnsmessage.Header, query *dnsmessage
 	var rr []dnsmessage.Resource = nil
 	var ar []dnsmessage.Resource = nil
 	var ad []dnsmessage.Resource = nil
-	if head.Authoritative {
-		ar = *answer
-	} else {
-		rr = *answer
+	if answer != nil {
+		if head.Authoritative {
+			ar = *answer
+		} else {
+			rr = *answer
+		}
 	}
 	if additional != nil {
 		ad = *additional
@@ -89,7 +91,8 @@ func processRequest(ctx *ServerContext, msg *dnsmessage.Message, sender *net.UDP
 		return // a pointless message
 	}
 	query := msg.Questions[0] // all other queries are ignored
-	util.LogInfo(util.DnsModule, txt.DnsSrvQuestion, []string{txt.DnsSrvId, txt.DnsSrvClient, txt.DnsSrvClass, txt.DnsSrvType, txt.DnsSrvName}, []string{strconv.Itoa(int(msg.Header.ID)), sender.String(), query.Class.String(), query.Type.String(), query.Name.String()})
+	queryName := query.Name.String()
+	util.LogInfo(util.DnsModule, txt.DnsSrvQuestion, []string{txt.DnsSrvId, txt.DnsSrvClient, txt.DnsSrvClass, txt.DnsSrvType, txt.DnsSrvName}, []string{strconv.Itoa(int(msg.Header.ID)), sender.String(), query.Class.String(), query.Type.String(), queryName})
 	db := config.GetDB()
 	if db != nil {
 		answer, additional := db.LookupAnswer(&query)
@@ -100,7 +103,19 @@ func processRequest(ctx *ServerContext, msg *dnsmessage.Message, sender *net.UDP
 			return
 		}
 	}
-	// todo: check if the host is whitelisted
+	white, black := config.GetNameFilters()
+	// todo: check if the host is whitelisted or blacklisted
+	blackFilter := black.FindFilter(queryName)
+	if blackFilter != nil {
+		whiteFilter := white.FindFilter(queryName)
+		if whiteFilter == nil {
+			util.LogInfo(util.DnsModule, txt.DnsSrvNameBlocked, []string{txt.DnsSrvName, txt.DnsSrvNameFilter}, []string{queryName, *blackFilter})
+			sendResponse(ctx, newResponseHeader(msg.Header.ID, true, dnsmessage.RCodeSuccess), &query, nil, nil, sender)
+			return // name is blacklisted, go to hell
+		} else {
+			util.LogInfo(util.DnsModule, txt.DnsSrvNameBlockOverride, []string{txt.DnsSrvName, txt.DnsSrvNameFilter}, []string{queryName, *whiteFilter})
+		}
+	}
 	// todo: filter name
 	// todo: check cache
 	// todo: forward message & store request in cache
@@ -108,7 +123,7 @@ func processRequest(ctx *ServerContext, msg *dnsmessage.Message, sender *net.UDP
 
 func Run() {
 	context := ServerContext{
-		Cache: cache.NewCache(),
+		Cache:  cache.NewCache(),
 		socket: nil,
 	}
 	util.LogInfo(util.DnsModule, txt.OpenPort, []string{txt.Port}, []string{defaultPortStr})
