@@ -1,0 +1,1414 @@
+{
+    "Http": {
+        "Enabled": true,
+        "Network": "tcp4",
+        "Host": "127.0.0.1",
+        "Port": 3800,
+        "User": "admin",
+        "Pass": "3400",
+        "TlsCrt": "D:\\Storage\\Cert\\www.i04.is__crt.pem",
+        "TlsKey": "D:\\Storage\\Cert\\www.i04.is__key.pem",
+        "TlsTrustCrt": "D:\\Storage\\Cert\\ca_crt.pem",
+        "TlsServerName": "www.i04.is"
+    },
+    "Dns": {
+        "Enabled": true,
+        "Network": "udp4",
+        "Host": "0.0.0.0"
+    },
+    "DnsServers": [
+        "1.1.1.1",
+        "8.8.8.8",
+        "8.8.4.4",
+        "9.9.9.9"
+    ],
+    "LocalDatabase": [
+        {
+            "Type": 1,
+            "Name": "www.i04.is",
+            "Ip": "127.0.0.1"
+        },
+        {
+            "Type": 1,
+            "Name": "mail.i04.is",
+            "Ip": "127.0.0.1"
+        },
+        {
+            "Type": 1,
+            "Name": "mail.i05.is",
+            "Ip": "192.168.1.170"
+        },
+        {
+            "Type": 1,
+            "Name": "i04.is",
+            "Ip": "127.0.0.1"
+        },
+        {
+            "Type": 28,
+            "Name": "ip6.i04.is",
+            "Ip": "::1"
+        },
+        {
+            "Type": 5,
+            "Name": "www.i05.is",
+            "cname": "www.i04.is"
+        },
+        {
+            "Type": 15,
+            "Name": "i04.com",
+            "Pref": 10,
+            "Mx": "mail.i04.com"
+        },
+        {
+            "Type": 15,
+            "Name": "i04.com",
+            "Pref": 20,
+            "Mx": "mail.i05.com"
+        }
+    ],
+    "AppRules": [
+        {
+            "Name": "Git",
+            "Path": "D:\\Apps\\cmd\\git\\cmd\\git.exe",
+            "Whitelist": [
+                {
+                    "Filter": "*",
+                    "Name": "Git override"
+                }
+            ]
+        },
+        {
+            "Name": "NodeJS",
+            "Path": "D:\\Apps\\cmd\\node\\node.exe",
+            "Whitelist": [
+                {
+                    "Filter": "*",
+                    "Name": "Nodejs override"
+                }
+            ]
+        },
+        {
+            "Name": "Git",
+            "Path": "D:\\Apps\\cmd\\git\\mingw64\\libexec\\git-core\\git-remote-https.exe",
+            "Whitelist": [
+                {
+                    "Filter": "*",
+                    "Name": "Git override"
+                }
+            ]
+        },
+        {
+            "Name": "Firefox (Private Browsing)",
+            "Path": "D:\\Apps\\webBrowsers\\privateBrowsing\\firefox\\firefox.exe",
+            "Whitelist": [
+                {
+                    "Filter": "apis.google.com"
+                },
+                {
+                    "Filter": "*clients*google.com"
+                },
+                {
+                    "Filter": "*android*google.com"
+                },
+                {
+                    "Filter": "*youtube*",
+                    "Name": "youtube"
+                },
+                {
+                    "Filter": "*ytimg*",
+                    "Name": "youtube image"
+                },
+                {
+                    "Filter": "*ytstatic*",
+                    "Name": "youtube"
+                },
+                {
+                    "Filter": "large-uploads.l.google.com",
+                    "Name": "Google"
+                },
+                {
+                    "Filter": "appspot.l.google.com",
+                    "Name": "Google"
+                },
+                {
+                    "Filter": "apis.google.com",
+                    "Name": "Google"
+                },
+                {
+                    "Filter": "pki-goog.l.google.com",
+                    "Name": "Google"
+                },
+                {
+                    "Filter": "accounts-cctld.l.google.com",
+                    "Name": "Google"
+                },
+                {
+                    "Filter": "accounts.google.dz",
+                    "Name": "Google"
+                },
+                {
+                    "Filter": "gmail*",
+                    "Name": "Google"
+                },
+                {
+                    "Filter": "ajax.googleapis.com"
+                },
+                {
+                    "Filter": "*www3.l.google.com*",
+                    "Name": "google translation"
+                },
+                {
+                    "Filter": "www.googletagservices.com",
+                    "Name": "tags in websites"
+                },
+                {
+                    "Filter": "googleadapis.l.google.com",
+                    "Name": "Google"
+                },
+                {
+                    "Filter": "maps*google*",
+                    "Name": "Google"
+                },
+                {
+                    "Filter": "googleapis*",
+                    "Name": "Google"
+                },
+                {
+                    "Filter": "news.l.google.com",
+                    "Name": "Google"
+                },
+                {
+                    "Filter": "myactivity.google.com",
+                    "Name": "Google Account"
+                },
+                {
+                    "Filter": "history.l.google.com",
+                    "Name": "Google Account"
+                },
+                {
+                    "Filter": "mail-attachment.*",
+                    "Name": "Gmail"
+                },
+                {
+                    "Filter": "*googleusercontent*",
+                    "Name": "Gmail"
+                },
+                {
+                    "Filter": "*googlemail.*",
+                    "Name": "Gmail"
+                },
+                {
+                    "Filter": "plus.l.google.com",
+                    "Name": "Google Shit"
+                },
+                {
+                    "Filter": "gstatic*",
+                    "Name": "Google Shit"
+                },
+                {
+                    "Filter": "history.*google.com",
+                    "Name": "Google Shit"
+                },
+                {
+                    "Filter": "myactivity.google.com",
+                    "Name": "Google Shit"
+                },
+                {
+                    "Filter": "keyhole.l.google.com",
+                    "Name": "Google Shit"
+                },
+                {
+                    "Filter": "chat-pa.clients*.google.com",
+                    "Name": "Google Shit"
+                },
+                {
+                    "Filter": "prod-tp.sumo.moz.works",
+                    "Disabled": true
+                },
+                {
+                    "Filter": "support.mozilla.org",
+                    "Disable": true
+                },
+                {
+                    "Filter": "olympia.prod.mozaws.net"
+                },
+                {
+                    "Filter": "*awsdns*.com"
+                },
+                {
+                    "Filter": "developer.mozilla.org",
+                    "Name": "docs"
+                },
+                {
+                    "Filter": "ftp.mozilla.org"
+                },
+                {
+                    "Filter": "fonts.*"
+                },
+                {
+                    "Filter": "font.*"
+                },
+                {
+                    "Filter": "*uploads.com"
+                },
+                {
+                    "Filter": "*windows*"
+                },
+                {
+                    "Filter": "*microsoft*"
+                }
+            ],
+            "Blacklist": []
+        },
+        {
+            "Name": "Firefox (Normal Browsing)",
+            "Path": "D:\\Apps\\webBrowsers\\normalBrowsing\\firefox\\firefox.exe",
+            "Whitelist": [
+                {
+                    "Filter": "apis.google.com"
+                },
+                {
+                    "Filter": "*clients*google.com"
+                },
+                {
+                    "Filter": "*android*google.com"
+                },
+                {
+                    "Filter": "*ytimg*",
+                    "Name": "youtube image"
+                },
+                {
+                    "Filter": "*ytstatic*",
+                    "Name": "youtube"
+                },
+                {
+                    "Filter": "large-uploads.l.google.com",
+                    "Name": "Google"
+                },
+                {
+                    "Filter": "appspot.l.google.com",
+                    "Name": "Google"
+                },
+                {
+                    "Filter": "apis.google.com",
+                    "Name": "Google"
+                },
+                {
+                    "Filter": "pki-goog.l.google.com",
+                    "Name": "Google"
+                },
+                {
+                    "Filter": "accounts-cctld.l.google.com",
+                    "Name": "Google"
+                },
+                {
+                    "Filter": "accounts.google.dz",
+                    "Name": "Google"
+                },
+                {
+                    "Filter": "gmail*",
+                    "Name": "Google"
+                },
+                {
+                    "Filter": "ajax.googleapis.com"
+                },
+                {
+                    "Filter": "*www3.l.google.com*",
+                    "Name": "google translation"
+                },
+                {
+                    "Filter": "www.googletagservices.com",
+                    "Name": "tags in websites"
+                },
+                {
+                    "Filter": "googleadapis.l.google.com",
+                    "Name": "Google"
+                },
+                {
+                    "Filter": "maps*google*",
+                    "Name": "Google"
+                },
+                {
+                    "Filter": "googleapis*",
+                    "Name": "Google"
+                },
+                {
+                    "Filter": "news.l.google.com",
+                    "Name": "Google"
+                },
+                {
+                    "Filter": "myactivity.google.com",
+                    "Name": "Google Account"
+                },
+                {
+                    "Filter": "history.l.google.com",
+                    "Name": "Google Account"
+                },
+                {
+                    "Filter": "mail-attachment.*",
+                    "Name": "Gmail"
+                },
+                {
+                    "Filter": "*googleusercontent*",
+                    "Name": "Gmail"
+                },
+                {
+                    "Filter": "*googlemail.*",
+                    "Name": "Gmail"
+                },
+                {
+                    "Filter": "plus.l.google.com",
+                    "Name": "Google Shit"
+                },
+                {
+                    "Filter": "gstatic*",
+                    "Name": "Google Shit"
+                },
+                {
+                    "Filter": "history.*google.com",
+                    "Name": "Google Shit"
+                },
+                {
+                    "Filter": "myactivity.google.com",
+                    "Name": "Google Shit"
+                },
+                {
+                    "Filter": "keyhole.l.google.com",
+                    "Name": "Google Shit"
+                },
+                {
+                    "Filter": "chat-pa.clients*.google.com",
+                    "Name": "Google Shit"
+                },
+                {
+                    "Filter": "prod-tp.sumo.moz.works",
+                    "Disabled": true
+                },
+                {
+                    "Filter": "support.mozilla.org",
+                    "Disable": true
+                },
+                {
+                    "Filter": "olympia.prod.mozaws.net"
+                },
+                {
+                    "Filter": "*awsdns*.com"
+                },
+                {
+                    "Filter": "developer.mozilla.org",
+                    "Name": "docs"
+                },
+                {
+                    "Filter": "ftp.mozilla.org"
+                },
+                {
+                    "Filter": "fonts.*"
+                },
+                {
+                    "Filter": "font.*"
+                },
+                {
+                    "Filter": "*uploads.com"
+                },
+                {
+                    "Filter": "*windows*"
+                },
+                {
+                    "Filter": "*microsoft*"
+                }
+            ],
+            "Blacklist": []
+        },
+        {
+            "Name": "Default Rule",
+            "Path": "*",
+            "Blacklist": [
+                {
+                    "Filter": "*",
+                    "Name": "Block Everything"
+                }
+            ]
+        }
+    ],
+    "Whitelist": [
+    ],
+    "Blacklist": [
+        {
+            "Filter": "*.fr"
+        },
+        {
+            "Filter": "*.twitter.*"
+        },
+        {
+            "Filter": "*googleapis*",
+            "Name": "Google API"
+        },
+        {
+            "Filter": "*.chartbeat.net"
+        },
+        {
+            "Filter": "*.appmeasurements.com"
+        },
+        {
+            "Filter": "*megambu*"
+        },
+        {
+            "Filter": "*mixpanel.com"
+        },
+        {
+            "Filter": "*haloway*"
+        },
+        {
+            "Filter": "*xbox*"
+        },
+        {
+            "Filter": "*.live.com"
+        },
+        {
+            "Filter": "*visualstudio.com"
+        },
+        {
+            "Filter": "*.pxchk.net"
+        },
+        {
+            "Filter": "*colorado.edu"
+        },
+        {
+            "Filter": "www.trialpay.com"
+        },
+        {
+            "Filter": "*westbyte.com"
+        },
+        {
+            "Filter": "*vmware.com"
+        },
+        {
+            "Filter": "*officeapps*"
+        },
+        {
+            "Filter": "connectivitycheck.gstatic.com"
+        },
+        {
+            "Filter": "*adobe.com",
+            "Name": "Blocked for Photoshop Activation"
+        },
+        {
+            "Filter": "ns-*.awsdns-*.co.uk",
+            "Name": "Blocked for Photoshop Activation"
+        },
+        {
+            "Filter": "api.typekit.com",
+            "Name": "Blocked for Photoshop Activation"
+        },
+        {
+            "Filter": "*visualstudio*"
+        },
+        {
+            "Filter": "*accounts*youtube*",
+            "Name": "Eat shit youtube"
+        },
+        {
+            "Filter": "fbcdn*",
+            "Name": "facebook",
+            "Disabled": true
+        },
+        {
+            "Filter": "*fbsbx*",
+            "Name": "facebook CDN",
+            "Disabled": true
+        },
+        {
+            "Filter": "*fb.co*",
+            "Name": "facebook CNAME",
+            "Disabled": true
+        },
+        {
+            "Filter": "*facebook*",
+            "Name": "facebook",
+            "Disabled": true
+        },
+        {
+            "Filter": "lookaside*",
+            "Name": "facebook?"
+        },
+        {
+            "Filter": "*push-browser*"
+        },
+        {
+            "Filter": "*freefullversion*"
+        },
+        {
+            "Filter": "*shiningmorning*"
+        },
+        {
+            "Filter": "*co.jp*"
+        },
+        {
+            "Filter": "*.ns.*"
+        },
+        {
+            "Filter": "*.ns-*"
+        },
+        {
+            "Filter": "*-ns-*"
+        },
+        {
+            "Filter": "*-ns.*"
+        },
+        {
+            "Filter": "*.ns_*"
+        },
+        {
+            "Filter": "*_ns.*"
+        },
+        {
+            "Filter": "*_ns-*"
+        },
+        {
+            "Filter": "*_ns_*"
+        },
+        {
+            "Filter": "*-ns_*"
+        },
+        {
+            "Filter": "ns.*"
+        },
+        {
+            "Filter": "ns%.*"
+        },
+        {
+            "Filter": "ns%%.*"
+        },
+        {
+            "Filter": "ns%%%.*"
+        },
+        {
+            "Filter": "*awsdns*"
+        },
+        {
+            "Filter": "*advmaker*"
+        },
+        {
+            "Filter": "*outdatedbrowser*"
+        },
+        {
+            "Filter": "*exodus.desync.com*"
+        },
+        {
+            "Filter": "*zer0day.ch*"
+        },
+        {
+            "Filter": "*open.demonii.com*"
+        },
+        {
+            "Filter": "*windows*"
+        },
+        {
+            "Filter": "*microsoft*"
+        },
+        {
+            "Filter": "*shield-normandy*"
+        },
+        {
+            "Filter": "*appspot.com"
+        },
+        {
+            "Filter": "*.symc"
+        },
+        {
+            "Filter": "*adapf*"
+        },
+        {
+            "Filter": "trck.*"
+        },
+        {
+            "Filter": "*adexcha*"
+        },
+        {
+            "Filter": "*rbxtrk*"
+        },
+        {
+            "Filter": "*cloudconfig*google*"
+        },
+        {
+            "Filter": "safebrowsing*google*com"
+        },
+        {
+            "Filter": "*phicdn.net*"
+        },
+        {
+            "Filter": "*mozaws.net*"
+        },
+        {
+            "Filter": "*doubleclick.net*"
+        },
+        {
+            "Filter": "*akamaitechnologies*"
+        },
+        {
+            "Filter": "*piriform*"
+        },
+        {
+            "Filter": "*id.google.com*",
+            "Disabled": true
+        },
+        {
+            "Filter": "*clients*google*"
+        },
+        {
+            "Filter": "*anal*",
+            "Name": "Block anything related to analytics"
+        },
+        {
+            "Filter": "*mozilla*"
+        },
+        {
+            "Filter": "*easypdfcombine*"
+        },
+        {
+            "Filter": "*adhit*"
+        },
+        {
+            "Filter": "*mtalk*google.com*"
+        },
+        {
+            "Filter": "updatesoft*"
+        },
+        {
+            "Filter": "*updateflash*"
+        },
+        {
+            "Filter": "*goodsite*"
+        },
+        {
+            "Filter": "*goodplace*"
+        },
+        {
+            "Filter": "*la.ustiming.org*"
+        },
+        {
+            "Filter": "*mynewspepper*"
+        },
+        {
+            "Filter": "*voluumtrk.com*"
+        },
+        {
+            "Filter": "*liveinternet.ru*"
+        },
+        {
+            "Filter": "*oncladrv.com*"
+        },
+        {
+            "Filter": "*mgid.com*"
+        },
+        {
+            "Filter": "*deloton.com*"
+        },
+        {
+            "Filter": "*steepto*"
+        },
+        {
+            "Filter": "*2mdnsys.com*"
+        },
+        {
+            "Filter": "*voluumtrk.com*"
+        },
+        {
+            "Filter": "*myway.com*"
+        },
+        {
+            "Filter": "*olymptrade.com*"
+        },
+        {
+            "Filter": "*binarybusinessbay*"
+        },
+        {
+            "Filter": "*starzplay*"
+        },
+        {
+            "Filter": "*rtmark.net*"
+        },
+        {
+            "Filter": "dns.*"
+        },
+        {
+            "Filter": "*ws*.rocks.io*"
+        },
+        {
+            "Filter": "*api-ubiservices.ubi.com*"
+        },
+        {
+            "Filter": "*windowsupdate*"
+        },
+        {
+            "Filter": "*plus.google.com*"
+        },
+        {
+            "Filter": "*taboola*"
+        },
+        {
+            "Filter": "*.l.google*"
+        },
+        {
+            "Filter": "*gannett*"
+        },
+        {
+            "Filter": "*demdex.net*"
+        },
+        {
+            "Filter": "*bouncex.net*"
+        },
+        {
+            "Filter": "*scorecardresearch*"
+        },
+        {
+            "Filter": "*summerhamster*"
+        },
+        {
+            "Filter": "*update*kpzs.com*"
+        },
+        {
+            "Filter": "*tags.tiqcdn.com*"
+        },
+        {
+            "Filter": "*fra.sp-prod*"
+        },
+        {
+            "Filter": "*bounceexchange*"
+        },
+        {
+            "Filter": "*adservice*"
+        },
+        {
+            "Filter": "*cent.spots.im*"
+        },
+        {
+            "Filter": "*starzplay*"
+        },
+        {
+            "Filter": "*syndicate*"
+        },
+        {
+            "Filter": "*pagead*"
+        },
+        {
+            "Filter": "*adrunnr*"
+        },
+        {
+            "Filter": "*googlesyndication*"
+        },
+        {
+            "Filter": "*adform.net*"
+        },
+        {
+            "Filter": "*adthech*"
+        },
+        {
+            "Filter": "*thetacdn*"
+        },
+        {
+            "Filter": "*.adnxs*"
+        },
+        {
+            "Filter": "*pubmatic*"
+        },
+        {
+            "Filter": "*adsrvr*"
+        },
+        {
+            "Filter": "*advert*"
+        },
+        {
+            "Filter": "*dmros1.ysm*"
+        },
+        {
+            "Filter": "*udc.*"
+        },
+        {
+            "Filter": "*.btrll.com*"
+        },
+        {
+            "Filter": "*flickr*"
+        },
+        {
+            "Filter": "*geo.yahoo*"
+        },
+        {
+            "Filter": "*yahooapis*"
+        },
+        {
+            "Filter": "*beap-bc.*"
+        },
+        {
+            "Filter": "*pr-bh.ybp.*"
+        },
+        {
+            "Filter": "*bidswitch*"
+        },
+        {
+            "Filter": "*ucs.query.*"
+        },
+        {
+            "Filter": "*free.fromdoctopdf.com*"
+        },
+        {
+            "Filter": "*codeblocks*"
+        },
+        {
+            "Filter": "*adstrades*"
+        },
+        {
+            "Filter": "*pickaflick*"
+        },
+        {
+            "Filter": "*aldtrax*"
+        },
+        {
+            "Filter": "*clickconvertrepeat*"
+        },
+        {
+            "Filter": "*pushwoosh*"
+        },
+        {
+            "Filter": "*blogs.apache.org*"
+        },
+        {
+            "Filter": "*crashlytics.com"
+        },
+        {
+            "Filter": "*profits.com"
+        },
+        {
+            "Filter": "*mobtrks.com"
+        },
+        {
+            "Filter": "*trck.me"
+        },
+        {
+            "Filter": "*office*client*"
+        },
+        {
+            "Filter": "*win*ipv6*"
+        },
+        {
+            "Filter": "*pool*ntp*org*"
+        },
+        {
+            "Filter": "*ml314.com*"
+        },
+        {
+            "Filter": "*onclkds.com*"
+        },
+        {
+            "Filter": "ads.*"
+        },
+        {
+            "Filter": "*.ad"
+        },
+        {
+            "Filter": "ad.*"
+        },
+        {
+            "Filter": "*adsystem*"
+        },
+        {
+            "Filter": "*edgesuite.net*"
+        },
+        {
+            "Filter": "*nsatc.net*"
+        },
+        {
+            "Filter": "*msn.com*"
+        },
+        {
+            "Filter": "*bing.com*"
+        },
+        {
+            "Filter": "*edge*bing.com*"
+        },
+        {
+            "Filter": "*delivery*microsoft.com*"
+        },
+        {
+            "Filter": "*.nsatc.net*"
+        },
+        {
+            "Filter": "*login.live.com*"
+        },
+        {
+            "Filter": "*live.com*"
+        },
+        {
+            "Filter": "*live.net*"
+        },
+        {
+            "Filter": "*skyapi*"
+        },
+        {
+            "Filter": "*skyprod*"
+        },
+        {
+            "Filter": "*register.mesh.com*"
+        },
+        {
+            "Filter": "*.windows.com"
+        },
+        {
+            "Filter": "*onesettings*metron*nsatc.net*"
+        },
+        {
+            "Filter": "*msdn.*"
+        },
+        {
+            "Filter": "*microsoftupdate*"
+        },
+        {
+            "Filter": "*adnexus.net*"
+        },
+        {
+            "Filter": "*msecnd.net*"
+        },
+        {
+            "Filter": "*msft.net*"
+        },
+        {
+            "Filter": "*bing.net*"
+        },
+        {
+            "Filter": "*telemetry*"
+        },
+        {
+            "Filter": "*telecommand*"
+        },
+        {
+            "Filter": "*atdmt.com*"
+        },
+        {
+            "Filter": "*mdn.net*"
+        },
+        {
+            "Filter": "*at1antis*"
+        },
+        {
+            "Filter": "*clix2themax*"
+        },
+        {
+            "Filter": "*flashplayer*"
+        },
+        {
+            "Filter": "*googleapps*"
+        },
+        {
+            "Filter": "*open-office*"
+        },
+        {
+            "Filter": "*zarget.com*"
+        },
+        {
+            "Filter": "*cdn.zarget.com*"
+        },
+        {
+            "Filter": "*adskeeper*"
+        },
+        {
+            "Filter": "*datacollect*"
+        },
+        {
+            "Filter": "event*"
+        },
+        {
+            "Filter": "*visiblemeasures*"
+        },
+        {
+            "Filter": "*mellowads.com*"
+        },
+        {
+            "Filter": "*lifeadz.com*"
+        },
+        {
+            "Filter": "ustat*"
+        },
+        {
+            "Filter": "*batmobi*"
+        },
+        {
+            "Filter": "*api.stats.appa*"
+        },
+        {
+            "Filter": "*api5.batmobil.net*"
+        },
+        {
+            "Filter": "*applog*"
+        },
+        {
+            "Filter": "*bi-collector*"
+        },
+        {
+            "Filter": "*lepodownload.mediatek.com*"
+        },
+        {
+            "Filter": "*pixel.realclever.com*"
+        },
+        {
+            "Filter": "*sdktm.w.inmobi.com*"
+        },
+        {
+            "Filter": "*googletagservices*"
+        },
+        {
+            "Filter": "*statcamp*"
+        },
+        {
+            "Filter": "*api.ad*"
+        },
+        {
+            "Filter": "banners.*"
+        },
+        {
+            "Filter": "*banner.*"
+        },
+        {
+            "Filter": "*clicktrack.*"
+        },
+        {
+            "Filter": "mrs*"
+        },
+        {
+            "Filter": "*propellerads*"
+        },
+        {
+            "Filter": "*brightesttoupgrading*"
+        },
+        {
+            "Filter": "*code.google.com*"
+        },
+        {
+            "Filter": "*www.myget.org*"
+        },
+        {
+            "Filter": "*api.google.com*"
+        },
+        {
+            "Filter": "*www.msftncsi.com*"
+        },
+        {
+            "Filter": "*croclix*"
+        },
+        {
+            "Filter": "*mshome.net*"
+        },
+        {
+            "Filter": "*firefox.com*"
+        },
+        {
+            "Filter": "*opencandy.com*"
+        },
+        {
+            "Filter": "*chrup*"
+        },
+        {
+            "Filter": "*safeupdate*.biz"
+        },
+        {
+            "Filter": "*adx.com"
+        },
+        {
+            "Filter": "*logging*"
+        },
+        {
+            "Filter": "*apis.google.com*"
+        },
+        {
+            "Filter": "*ustiming*"
+        },
+        {
+            "Filter": "*expertsmi*"
+        },
+        {
+            "Filter": "*socialnewpages*"
+        },
+        {
+            "Filter": "*lookaside*"
+        },
+        {
+            "Filter": "*suggestqueries*"
+        },
+        {
+            "Filter": "api*twitter*"
+        },
+        {
+            "Filter": "*revcontent*"
+        },
+        {
+            "Filter": "*jwpltx*"
+        },
+        {
+            "Filter": "*disqusad*"
+        },
+        {
+            "Filter": "*adsnative*"
+        },
+        {
+            "Filter": "*adsco.*"
+        },
+        {
+            "Filter": "*.ads-*"
+        },
+        {
+            "Filter": "*-ads.*"
+        },
+        {
+            "Filter": "*.ads.*"
+        },
+        {
+            "Filter": "*-ads-*"
+        },
+        {
+            "Filter": "*.ad-*"
+        },
+        {
+            "Filter": "*-ad.*"
+        },
+        {
+            "Filter": "*.ad.*"
+        },
+        {
+            "Filter": "*-ad-*"
+        },
+        {
+            "Filter": "*adsymptotic*"
+        },
+        {
+            "Filter": "*popad*"
+        },
+        {
+            "Filter": "*ads.com"
+        },
+        {
+            "Filter": "*tagmanager*"
+        },
+        {
+            "Filter": "*statcounter*"
+        },
+        {
+            "Filter": "*addthis.com"
+        },
+        {
+            "Filter": "gconnect.ubi.com"
+        },
+        {
+            "Filter": "*dating*"
+        },
+        {
+            "Filter": "*ubisoft*"
+        },
+        {
+            "Filter": "*adsupply*"
+        },
+        {
+            "Filter": "*4dsply*"
+        },
+        {
+            "Filter": "utcnist.colorado.edu",
+            "Name": "time sync bullshit"
+        },
+        {
+            "Filter": "*symmetricom*",
+            "Name": "time sync bullshit"
+        },
+        {
+            "Filter": "*adtech*"
+        },
+        {
+            "Filter": "*adserver*"
+        },
+        {
+            "Filter": "*onclick*"
+        },
+        {
+            "Filter": "*porn*"
+        },
+        {
+            "Filter": "*fuck*"
+        },
+        {
+            "Filter": "app-measurement.com"
+        },
+        {
+            "Filter": "*avrfreaks*"
+        },
+        {
+            "Filter": "*siteintercept*"
+        },
+        {
+            "Filter": "*qualtrics*"
+        },
+        {
+            "Filter": "*metric*"
+        },
+        {
+            "Filter": "*usertrust*"
+        },
+        {
+            "Filter": "*trustarc*"
+        },
+        {
+            "Filter": "*estrongs*"
+        },
+        {
+            "Filter": "*monetiz*"
+        },
+        {
+            "Filter": "*exdynsrv.com"
+        },
+        {
+            "Filter": "*.moz.works"
+        },
+        {
+            "Filter": "*click*"
+        },
+        {
+            "Filter": "*adobe*"
+        },
+        {
+            "Filter": "*jungloconding*",
+            "Name": "minging website?"
+        },
+        {
+            "Filter": "*toro-tags.com"
+        },
+        {
+            "Filter": "*exercially.mobi*"
+        },
+        {
+            "Filter": "*jungloconding.info"
+        },
+        {
+            "Filter": "*hantinlethemsed.info"
+        },
+        {
+            "Filter": "*boudja.com"
+        },
+        {
+            "Filter": "*spotscenered*"
+        },
+        {
+            "Filter": "*browser-update.org*"
+        },
+        {
+            "Filter": "*pushwhy.com*"
+        },
+        {
+            "Filter": "www.bet3*"
+        },
+        {
+            "Filter": "*funtikapa*"
+        },
+        {
+            "Filter": "*symcb.com"
+        },
+        {
+            "Filter": "*symcd.com"
+        },
+        {
+            "Filter": "*.mojang.com",
+            "Name": "minecraft",
+            "Disable": true
+        },
+        {
+            "Filter": "*.minecraft.com",
+            "Name": "minecraft",
+            "Disable": true
+        },
+        {
+            "Filter": "*internetdownloadmanager*"
+        },
+        {
+            "Filter": "*tonec.com"
+        },
+        {
+            "Filter": "*registeridm*"
+        },
+        {
+            "Filter": "*azureedge.net"
+        },
+        {
+            "Filter": "*.v0cdn.net"
+        },
+        {
+            "Filter": "*.localdomain"
+        },
+        {
+            "Filter": "mqtt-mini.facebook.com"
+        },
+        {
+            "Filter": "*noxinfluencer.com"
+        },
+        {
+            "Filter": "app.adjust.com"
+        },
+        {
+            "Filter": "*nox.com",
+            "Name": "nox"
+        },
+        {
+            "Filter": "*yeshen.com",
+            "Name": "nox"
+        },
+        {
+            "Filter": "*.applinzi.com",
+            "Name": "nox"
+        },
+        {
+            "Filter": "inpagepush.com"
+        },
+        {
+            "Filter": "*microsoft*"
+        },
+        {
+            "Filter": "*.ms.*"
+        },
+        {
+            "Filter": "live*"
+        },
+        {
+            "Filter": "*windows*"
+        },
+        {
+            "Filter": "*bing*"
+        },
+        {
+            "Filter": "*adnxtr*"
+        },
+        {
+            "Filter": "*smartadserver*"
+        },
+        {
+            "Filter": "*detectportal*"
+        },
+        {
+            "Filter": "*wowreality*"
+        },
+        {
+            "Filter": "*caradstag*"
+        },
+        {
+            "Filter": "*onstunkyr*"
+        },
+        {
+            "Filter": "*doubleclick*"
+        },
+        {
+            "Filter": "*advert*"
+        },
+        {
+            "Filter": "ad.*"
+        },
+        {
+            "Filter": "pagead.*"
+        },
+        {
+            "Filter": "pagead%.*"
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+
+	<assemblyIdentity version="2.1.4.0" processorArchitecture="*" name="i04Dns" type="win32"/>
+
+	<description>DNS Server</description>
+
+	<trustInfo xmlns="urn:schemas-microsoft-com:asm.v2">
+		<security>
+			<requestedPrivileges>
+				<requestedExecutionLevel level="asInvoker" uiAccess="false"/>
+			</requestedPrivileges>
+		</security>
+	</trustInfo>
+</assembly>
